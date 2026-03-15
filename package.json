@@ -7,11 +7,11 @@
   "scripts": {
     "dev": "AUTH_MODE=local_noauth vite dev",
     "dev:agents": "mkdir -p .logs && AUTH_MODE=local_noauth portless run vite dev 2>&1 | tee .logs/dev-server.log",
-    "build": "vite build && tsc --noEmit",
+    "build": "npm run db:migrate:local && npm run build && tsc --noEmit",
     "lint": "oxlint . --type-aware",
     "lint:fix": "oxlint . --type-aware --fix",
     "preview": "npm run build && vite preview --port 3001",
-    "deploy": "npm run db:migrate:prod && npm run build && wrangler deploy",
+    "start": "vite preview --port 3001",
     "cf-typegen": "wrangler types",
     "types:check": "tsc --noEmit",
     "format:check": "prettier --check .",

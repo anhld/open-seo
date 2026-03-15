@@ -15,6 +15,7 @@ export default defineConfig(({ mode }) => {
     envPrefix: ["VITE_"],
     server: {
       port,
+      allowedHosts: true,
     },
     plugins: [
       showDevtools
